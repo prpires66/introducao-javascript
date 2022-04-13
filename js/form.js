@@ -1,12 +1,12 @@
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
-botaoAdicionar.addEventListener("click", function(event) {
+botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
 
     var form = document.querySelector("#form-adiciona");
 
     var paciente = obtemPacienteDoFormulario(form);
 
-    var pacienteTr = montaTr(paciente); 
+    var pacienteTr = montaTr(paciente);
 
     var erros = validaPaciente(paciente);
     if (erros.length > 0) {
@@ -20,7 +20,7 @@ botaoAdicionar.addEventListener("click", function(event) {
     form.reset();
     var mensagensErro = document.querySelector("#mensagens-erro");
     mensagensErro.innerHTML = "";
-});   
+});
 
 function obtemPacienteDoFormulario(form) {
     var paciente = {
@@ -36,20 +36,20 @@ function obtemPacienteDoFormulario(form) {
 function montaTr(pacientes) {
     var pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
-    
+
     pacienteTr.appendChild(montaTd(pacientes.nome, "info-nome"));
     pacienteTr.appendChild(montaTd(pacientes.peso, "info-peso"));
     pacienteTr.appendChild(montaTd(pacientes.altura, "info-altura"));
     pacienteTr.appendChild(montaTd(pacientes.gordura, "info-gordura"));
     pacienteTr.appendChild(montaTd(pacientes.imc, "info-imc"));
-    
+
     return pacienteTr;
 }
 
 function exibeMensagensDeErro(erros) {
     var ul = document.querySelector("#mensagens-erro");
     ul.innerHTML = "";
-    erros.forEach(function(erro) {
+    erros.forEach(function (erro) {
         var li = document.createElement("li");
         li.textContent = erro;
         ul.appendChild(li);
