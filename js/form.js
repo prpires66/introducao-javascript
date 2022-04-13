@@ -45,6 +45,7 @@ function montaTr(pacientes) {
     
     return pacienteTr;
 }
+
 function exibeMensagensDeErro(erros) {
     var ul = document.querySelector("#mensagens-erro");
     ul.innerHTML = "";
